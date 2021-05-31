@@ -1,0 +1,43 @@
+<ActionBar title="Sınav Sonucu"></ActionBar>
+
+<GridLayout>
+    <ScrollView class="page">
+        <StackLayout class="home-panel">
+            <GridLayout rows="auto,*,auto,auto" height="1000px">
+                <label
+                row="0"
+                col="0"
+                colspan="2"
+                horizontalAlignment="stretch"
+                textAlignment="center"
+                style="font-weight:bold; font-size: 30px; background-color:black; color:#fff; margin : 20px;"
+                text="TEST SONUCU"
+              ></label>
+
+                <RadPieChart allowAnimation="true" row="1" class="border">
+                    <DonutSeries tkPieSeries selectionMode="DataPoint"
+                        outerRadiusFactor="0.7" innerRadiusFactor="0.9"
+                        [items]="chartSource" showPercentage="true"
+                        valueProperty="Count" legendLabel="Answer"
+                        startAngle="-90" endAngle="270" >
+                    </DonutSeries>
+                    <Palette tkPiePalette >
+                        <PaletteEntry tkPiePaletteEntry fillColor="#8af542" strokeColor="#ffffff">
+                        </PaletteEntry>
+                        <PaletteEntry tkPiePaletteEntry fillColor="#ffbfbf" strokeColor="#eeeeee">
+                        </PaletteEntry>
+                    </Palette>
+                </RadPieChart>
+                <label row="1" col="0" verticalAlignment=center horizontalAlignment=center textAlignment=center [text]="correctAnswersCount  + '/' + (incorrectAnswersCount + correctAnswersCount)" style="font-size: 30px; font-weight: bold;">
+
+                </label>
+                <label row="2" col="0" verticalAlignment=center horizontalAlignment=center textAlignment=center [text]="percentage + '% ' +  'Başarılı yanıtladın'" style="font-size: 30px; font-weight: bold;">
+
+                </label>
+                <Button row="3" col="0" text="Diğer Testlerden Devam Edin" [nsRouterLink]="['/exams']">
+
+                </Button>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

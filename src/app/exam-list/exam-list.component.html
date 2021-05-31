@@ -1,0 +1,45 @@
+<ActionBar title="Sınavlar"> </ActionBar>
+
+
+<GridLayout rows="*,100">
+    <ScrollView  row="0" col="0">
+      <ListView [items]="items">
+        <ng-template let-item="item">
+          <StackLayout orientation="vertical" class="list-group-item">
+            <GridLayout rows="auto, auto,auto" columns="auto,*">
+              <Label col="0" row = "0" colspan = "2"
+              style="font-size:20px;"
+              [text]="item.Title"
+              textWrap="true"
+            ></Label>
+              <Label col="0" row="1"
+              [text]="['Soru Sayısı : 5']"></Label>
+
+              <Label
+              col = "0" row = "2"
+              [text]="['Sınav Süresi : 5 dk']"></Label>
+
+              <button col="1" row="1" text="Baslat" horizontalAlignment=right
+              (tap)="onStartExamButton_Clicked($event, item.Id)"
+              >
+
+              </button>
+            </GridLayout>
+
+          </StackLayout>
+        </ng-template>
+      </ListView>
+    </ScrollView>
+  <StackLayout row="1" col="0">
+    <label textWrap="true" textAlignment=center text="Daha önce çözdüğünüz sınavlara ulaşmak için aşağıdaki butonu kullanabilirsiniz"></label>
+    <button text="ÇÖZÜLEN SINAVLAR" backgroundColor="#000" color="#fff" [nsRouterLink]="'/exam-histories'">
+
+    </button>
+  </StackLayout>
+</GridLayout>
+
+
+
+<GridLayout>
+
+</GridLayout>

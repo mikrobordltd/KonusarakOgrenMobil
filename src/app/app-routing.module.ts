@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core'
 import { Routes } from '@angular/router'
 import { NativeScriptRouterModule } from '@nativescript/angular'
 
-import { ItemsComponent } from './item/items.component'
-import { ItemDetailComponent } from './item/item-detail.component'
+import { ExamListComponent } from './exam-list/exam-list.component'
+import { ExamComponent } from './exam/exam.component'
+import { ExamResultComponent } from './exam-result/exam-result.component'
+import { ExamHistoryComponent } from './exam-history/exam-history.component'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/items', pathMatch: 'full' },
-  { path: 'items', component: ItemsComponent },
-  { path: 'item/:id', component: ItemDetailComponent },
+  { path: '', redirectTo: '/exams', pathMatch: 'full' },
+  { path: 'exams', component: ExamListComponent },
+  { path: 'exam/:id', component: ExamComponent },
+  { path: 'exam-result', component: ExamResultComponent },
+  { path: 'exam-histories', component: ExamHistoryComponent },
 ]
 
 @NgModule({

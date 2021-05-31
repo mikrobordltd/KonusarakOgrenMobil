@@ -1,0 +1,19 @@
+<ActionBar title="Geçmiş Sınavlar">
+    <NavigationButton text="Geri" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<ScrollView  row="0" col="0">
+    <ListView [items]="historyItems">
+      <ng-template let-item="item">
+        <StackLayout >
+            <Label
+            style="font-size:20px;"
+            [text]="item.Title"
+            textWrap="true"
+          ></Label>
+          <Label col="0" row="1"
+          [text]="'Doğru Cevap : ' + item.CorrectAnswersCount + '/' + item.TotalCount"></Label>
+        </StackLayout>
+      </ng-template>
+    </ListView>
+  </ScrollView>

@@ -1,0 +1,44 @@
+<ActionBar title="Sınav"></ActionBar>
+
+
+<StackLayout *ngIf="isExamLoaded" >
+  <GridLayout columns="*,*" rows="auto,auto" backgroundColor="">
+    <Label
+      row="0"
+      col="0"
+      style="font-size: 24px;"
+      text="Kalan Süre"
+      textAlignment="center"
+    ></Label>
+    <label
+      row="0"
+      col="1"
+      style="font-size: 24px;"
+      [text]="remaningTime"
+      textAlignment="center"
+    ></label>
+    <label
+      row="1"
+      col="0"
+      colspan="2"
+      horizontalAlignment="stretch"
+      textAlignment="center"
+      style="font-weight:bold; font-size: 30px; background-color:black; color:#fff; margin : 20px;"
+      [text]="item.Title"
+    ></label>
+  </GridLayout>
+  <GridLayout #questionarea rows="auto,auto,auto,auto,auto,auto,auto" columns="*">
+      <Label row="0" column="0"   [text]="item.Questions[currentQuestionIndex].Text" style="text-align:center; font-size:18px; font-weight: bold;"></Label>
+      <button id="btnOptionA" row="1" column="0" class="option-button"  [text]="item.Questions[currentQuestionIndex].OptionA" (tap)="onOptionClicked($event,0)"></button>
+      <button id="btnOptionB" row="2" column="0" class="option-button"  [text]="item.Questions[currentQuestionIndex].OptionB"  (tap)="onOptionClicked($event,1)"></button>
+      <button id="btnOptionC"  row="3" column="0" class="option-button"  [text]="item.Questions[currentQuestionIndex].OptionC"  (tap)="onOptionClicked($event,2)"></button>
+      <button id="btnOptionD"  row="4" column="0" class="option-button"  [text]="item.Questions[currentQuestionIndex].OptionD"  (tap)="onOptionClicked($event,3)"></button>
+      <button id="btnOptionE"  row="5" column="0" class="option-button"  [text]="item.Questions[currentQuestionIndex].OptionE"  (tap)="onOptionClicked($event,4)"></button>
+
+      <button  (tap)="showNextQuestionClicked()" row="6" column="0"  text="Sonraki Soru" id="btnNextQuestion" style="background-color: #000; color:#fff; visibility: hidden;">
+
+      </button>
+  </GridLayout>
+
+
+</StackLayout>
